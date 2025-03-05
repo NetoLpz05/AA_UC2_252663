@@ -1,7 +1,7 @@
 package ejercicio2.bubble.sort;
 
 /**
- * Clase que implementa el algoritmo de ordenamiento Bubble Sort.
+ * Clase que implementa el algoritmo de ordenamiento Bubble Sort
  * @author ErnestoLpz_252663
  */
 public class Ordenamientos {
@@ -14,7 +14,7 @@ public class Ordenamientos {
     public void burbuja(){
         for (int i = 1; i < a.length; i++) {
             for (int j = 0; j < a.length - i; i++) {
-                //Condicion
+                //Condicion principal
                 if(a[j]>a[j+1]){
                     //Intercambio
                     int aux = a[j];
