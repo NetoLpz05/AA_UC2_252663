@@ -13,7 +13,7 @@ public class Ordenamientos {
     
     public void burbuja(){
         for (int i = 1; i < a.length; i++) {
-            for (int j = 0; j < a.length - i; i++) {
+            for (int j = 0; j < a.length - i; j++) {
                 //Condicion principal
                 if(a[j]>a[j+1]){
                     //Intercambio
