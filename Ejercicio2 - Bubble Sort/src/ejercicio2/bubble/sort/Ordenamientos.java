@@ -37,4 +37,20 @@ public class Ordenamientos {
         // Big O: O(n^2) (En el peor caso) [El arreglo esta desordenado]
         // Big O: O(n) (En el mejor caso) [El arreglo ya esta ordenado]
     }
+
+    public static void seleccion(int[] a){
+        int n = a.length; //1
+        for (int i = 0; i < n-1; i++) {//Nos va a dar la posicion del elemento mas pequeño del arreglo 
+            int minIndex = i;
+            for (int j = i+1; j < n; j++) {
+                if(a[j] < a[minIndex]){
+                    minIndex = j;
+                }
+            }
+            //Intercambio
+            int aux = a[minIndex];
+            a[minIndex] = a[i];
+            a[i] = aux;
+        }
+    }
 }
