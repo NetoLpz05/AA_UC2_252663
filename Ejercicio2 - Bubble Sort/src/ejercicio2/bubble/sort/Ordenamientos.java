@@ -53,4 +53,37 @@ public class Ordenamientos {
             a[i] = aux;
         }
     }
+    
+    public static void quickSort(int[] a, int inicio, int fin){
+        int pivote = particionar(a,inicio,fin);
+        
+        //Recursion de la izquierda
+        quickSort(a, inicio, pivote - 1);
+        
+        //Recursion de la derecha
+        quickSort(a, pivote + 1, fin);
+    } 
+    
+    private static int particionar(int[] a, int inicio, int fin){
+        //Seleccionar el pivote
+        int pivote = a[fin];
+        
+        //Seleccionar el índice más pequeño (con respecto al pivote)
+        int i = inicio - 1;
+        
+        //Recorrer todo el arreglo buscando elementos menores al pivote para intercambiarlos
+        for(int actual = inicio; actual < fin; actual++){
+           if(actual < pivote){
+               i++;
+               int aux = a[i];
+               a[i] = a[actual];
+               a[actual] = aux;
+           } 
+        }
+        int temp = a[i];
+        a[i] = a[fin];
+        a[fin] = temp;
+        
+        return i;
+    }
 }

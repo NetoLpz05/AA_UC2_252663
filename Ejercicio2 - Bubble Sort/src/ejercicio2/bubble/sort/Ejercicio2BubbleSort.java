@@ -6,16 +6,19 @@ package ejercicio2.bubble.sort;
  */
 public class Ejercicio2BubbleSort {
     public static void main(String[] args) {
-        int[] a = {8, 30, 15};
+        int[] a = {0, 5, 2};
+        int n = a.length -1;
         
-        System.out.println("Arreglo original:");
-        imprimirArreglo(a);
+        Ordenamientos.quickSort(a, 0, 0);
         
-        Ordenamientos ordenamiento = new Ordenamientos(a);
-        ordenamiento.burbuja();
-        
-        System.out.println("Arreglo ordenado:");
-        imprimirArreglo(a);
+//        System.out.println("Arreglo original:");
+//        imprimirArreglo(a);
+//        
+//        Ordenamientos ordenamiento = new Ordenamientos(a);
+//        ordenamiento.burbuja();
+//        
+//        System.out.println("Arreglo ordenado:");
+//        imprimirArreglo(a);
     }
     
     /**
@@ -33,4 +36,6 @@ public class Ejercicio2BubbleSort {
         }
         System.out.println("]");
     }
+    
+    
 }
