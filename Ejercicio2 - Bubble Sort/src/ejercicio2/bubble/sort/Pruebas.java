@@ -4,12 +4,12 @@ package ejercicio2.bubble.sort;
  *
  * @author ErnestoLpz_252663
  */
-public class Ejercicio2BubbleSort {
+public class Pruebas {
     public static void main(String[] args) {
-        int[] a = {0, 5, 2};
+        int[] a = {7, 8, 1, 9, 4};
         int n = a.length -1;
         
-        Ordenamientos.quickSort(a, 0, 0);
+        Ordenamientos.insertionSort(a);
         
 //        System.out.println("Arreglo original:");
 //        imprimirArreglo(a);

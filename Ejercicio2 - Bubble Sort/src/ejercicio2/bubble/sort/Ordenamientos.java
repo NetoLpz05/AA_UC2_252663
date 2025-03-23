@@ -54,36 +54,84 @@ public class Ordenamientos {
         }
     }
     
+    /**
+    * Entrada: Arreglo [a]
+    * Precondición: El arreglo no debe ser nulo
+    * Postcondición: El arreglo se devuelve ordenado en orden ascendente
+    * Salida: Arreglo ordenado
+    */
     public static void quickSort(int[] a, int inicio, int fin){
-        int pivote = particionar(a,inicio,fin);
+        //Caso Base
+        if(inicio < fin){// 1 operación -> O(1)
         
+        //Caso Recursivo
+        int pivote = particionar(a,inicio,fin);// 2 operaciones -> O(n)
+            
         //Recursion de la izquierda
-        quickSort(a, inicio, pivote - 1);
+        quickSort(a, inicio, pivote - 1); // n/2 en caso promedio
         
         //Recursion de la derecha
-        quickSort(a, pivote + 1, fin);
+        quickSort(a, pivote + 1, fin); // n/2 en caso promedio
+        }
     } 
     
-    private static int particionar(int[] a, int inicio, int fin){
-        //Seleccionar el pivote
-        int pivote = a[fin];
-        
-        //Seleccionar el índice más pequeño (con respecto al pivote)
-        int i = inicio - 1;
-        
-        //Recorrer todo el arreglo buscando elementos menores al pivote para intercambiarlos
-        for(int actual = inicio; actual < fin; actual++){
-           if(actual < pivote){
-               i++;
-               int aux = a[i];
-               a[i] = a[actual];
-               a[actual] = aux;
-           } 
+    private static int particionar(int[] a, int inicio, int fin) {
+        // Selección del pivote
+        int pivote = a[fin]; // 1 operación -> O(1)
+
+        // Inicialización del índice menor
+        int i = inicio - 1; // 1 operación -> O(1)
+
+        // Recorrer todo el arreglo buscando elementos menores al pivote
+        for (int actual = inicio; actual < fin; actual++) { // Se ejecuta n veces -> O(n)
+            if (a[actual] < pivote) { // En el peor caso, se ejecuta n veces -> O(n)
+                i++; // O(n) en el peor caso
+
+                // Intercambio de elementos
+                int aux = a[i]; // O(n) en el peor caso
+                a[i] = a[actual]; // O(n) en el peor caso
+                a[actual] = aux; // O(n) en el peor caso
+            }
         }
-        int temp = a[i];
-        a[i] = a[fin];
-        a[fin] = temp;
-        
-        return i;
+
+        // Último intercambio para colocar el pivote en su posición correcta
+        int temp = a[i + 1]; // 1 operación -> O(1)
+        a[i + 1] = a[fin]; // 1 operación -> O(1)
+        a[fin] = temp; // 1 operación -> O(1)
+
+        return i + 1; // O(1)
     }
+    /**
+    * Total: 2(n/2) + O(n)
+    * Mejor caso: O(n log n) -> Cuando el pivote divide en mitades exactas
+    * Caso promedio: O(n log n) [Distribución equilibrada de particiones]
+    * Peor caso: O(n^2) [Cuando el pivote es siempre el mayor o menor elemento]
+    */
+    
+    /**
+     * Método que implementa el algoritmo de ordenamiento por insercion
+     * @param arreglo Arreglo de enteros a ordenar
+     */
+    public static void insertionSort(int[] arreglo) {
+        int n = arreglo.length; // 1 operación -> O(1)
+        for (int i = 1; i < n; i++) { // Se ejecuta n veces -> O(n)
+            int clave = arreglo[i]; // O(n)
+            int j = i - 1; // O(n)
+            // Desplazar elementos mayores que la clave una posición adelante
+            while (j >= 0 && arreglo[j] > clave) { // En el peor caso, se ejecuta n veces por cada i -> O(n^2)
+                arreglo[j + 1] = arreglo[j]; // O(n^2) en el peor caso
+                j = j - 1; // O(n^2) en el peor caso
+            }
+            arreglo[j + 1] = clave; // O(n)
+        }
+    }
+    /**
+    * Mejor caso (arreglo ya ordenado): O(n)
+    * Peor caso (arreglo en orden inverso): O(n^2)
+    * 
+    * Total: (n^2 + n) -> O(n^2)
+    * Mejor caso: O(n) -> Cuando el arreglo ya está ordenado
+    * Caso promedio: O(n^2) -> Distribución aleatoria de elementos
+    * Peor caso: O(n^2) -> Cuando el arreglo está en orden inverso
+    */
 }
