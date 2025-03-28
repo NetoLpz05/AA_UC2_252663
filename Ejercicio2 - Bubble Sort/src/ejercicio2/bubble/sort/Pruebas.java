@@ -6,10 +6,10 @@ package ejercicio2.bubble.sort;
  */
 public class Pruebas {
     public static void main(String[] args) {
-        int[] a = {7, 8, 1, 9, 4};
+        int[] a = {5, 8, 3};
         int n = a.length -1;
         
-        Ordenamientos.insertionSort(a);
+        Ordenamientos.selectionSort(a);
         
 //        System.out.println("Arreglo original:");
 //        imprimirArreglo(a);
