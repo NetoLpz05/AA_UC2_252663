@@ -134,4 +134,37 @@ public class Ordenamientos {
     * Caso promedio: O(n^2) -> Distribución aleatoria de elementos
     * Peor caso: O(n^2) -> Cuando el arreglo está en orden inverso
     */
+
+    /**
+     * Método que implementa el algoritmo de ordenamiento por selección (Selection Sort)
+     * @param a Arreglo de enteros a ordenar
+     * Entrada: Arreglo [a]
+     * Precondición: El arreglo no debe ser nulo
+     * Postcondición: El arreglo se devuelve ordenado en orden ascendente
+     * Salida: Arreglo ordenado
+     */
+    public static void selectionSort(int[] a) {
+        int n = a.length;//1 operación -> O(1)
+        for (int i = 0; i < n - 1; i++) {//Se ejecuta n-1 veces -> O(n)
+            int minIndex = i;//O(n)
+            for (int j = i + 1; j < n; j++) {//Se ejecuta n-i-1 veces -> O(n^2)
+                if (a[j] < a[minIndex]) {//O(n^2)
+                    minIndex = j;//O(n^2)
+                }
+            }
+            // Intercambio de elementos
+            int aux = a[minIndex];//O(n)
+            a[minIndex] = a[i];//O(n)
+            a[i] = aux;//O(n)
+            }
+        }
+    /**
+     * Mejor caso (arreglo ya ordenado): 
+     * Peor caso (arreglo en orden inverso)
+     * 
+     * Total: (n^2 + n) -> O(n^2)
+     * Mejor caso: O(n^2) -> Cuando el arreglo ya esta ordenado
+     * Caso Promedio: O(n^2) -> Distribucion aleatoria de elementos 
+     * Peor caso: O(n^2) -> Cuando el arreglo está en orden inverso
+     */
 }
