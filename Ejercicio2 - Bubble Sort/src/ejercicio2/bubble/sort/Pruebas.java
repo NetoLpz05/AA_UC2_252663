@@ -1,41 +1,37 @@
 package ejercicio2.bubble.sort;
 
+import static ejercicio2.bubble.sort.Ordenamientos.quickSort;
+
 /**
  *
  * @author ErnestoLpz_252663
  */
 public class Pruebas {
     public static void main(String[] args) {
-        int[] a = {5, 8, 3};
-        int n = a.length -1;
+        int[] arregloQuickSort = {5, 2, 8};
         
-        Ordenamientos.selectionSort(a);
-        
-//        System.out.println("Arreglo original:");
-//        imprimirArreglo(a);
-//        
-//        Ordenamientos ordenamiento = new Ordenamientos(a);
-//        ordenamiento.burbuja();
-//        
-//        System.out.println("Arreglo ordenado:");
-//        imprimirArreglo(a);
+        System.out.println("Arreglo original para QuickSort:");
+        imprimirArreglo(arregloQuickSort);
+
+        quickSort(arregloQuickSort, 0, arregloQuickSort.length - 1);
+
+        System.out.println("Arreglo ordenado con QuickSort:");
+        imprimirArreglo(arregloQuickSort);
+
+        int[] arregloSelectionSort = { 5, 8, 3 };
+        System.out.println("\nArreglo original para SelectionSort:");
+        imprimirArreglo(arregloSelectionSort);
+
+        Ordenamientos.selectionSort(arregloSelectionSort);
+
+        System.out.println("Arreglo ordenado con SelectionSort:");
+        imprimirArreglo(arregloSelectionSort);
     }
-    
-    /**
-     * Método auxiliar para imprimir un arreglo.
-     *
-     * @param a El arreglo a imprimir.
-     */
-    public static void imprimirArreglo(int[] a) {
-        System.out.print("[");
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i]);
-            if (i < a.length - 1) {
-                System.out.print(", ");
-            }
+
+    private static void imprimirArreglo(int[] a) {
+        for (int num : a) {
+            System.out.print(num + " ");
         }
-        System.out.println("]");
+        System.out.println();
     }
-    
-    
 }
